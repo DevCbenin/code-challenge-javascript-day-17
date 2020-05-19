@@ -1,5 +1,6 @@
-const clean = enteredNumber => {
-   //type code 
-  };
-  
-  module.exports = clean;
+
+const clean = () => {
+  throw new Error("Remove this statement and implement this function");
+};
+
+module.exports = clean;
