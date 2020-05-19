@@ -1,7 +1,7 @@
 {
-  "name": "code-challenge-javascript-day-16",
+  "name": "code-challenge-javascript-day-17",
   "version": "1.0.0",
-  "description": "javascript code challenge day 16. Phone number",
+  "description": "javascript code challenge day 17. Roman Numerals",
   "main": "index.js",
   "dependencies": {
     "jest": "^26.0.1"
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DevCbenin/code-challenge-javascript-day-16.git"
+    "url": "git+https://github.com/DevCbenin/code-challenge-javascript-day-17.git"
   },
   "keywords": [
     "12 days",
@@ -25,10 +25,10 @@
     "devc",
     "benin"
   ],
-  "author": "damilare-sanusi",
+  "author": "samson-ehigiator",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DevCbenin/code-challenge-javascript-day-16/issues"
+    "url": "https://github.com/DevCbenin/code-challenge-javascript-day-17/issues"
   },
-  "homepage": "https://github.com/DevCbenin/code-challenge-javascript-day-16#readme"
+  "homepage": "https://github.com/DevCbenin/code-challenge-javascript-day-17#readme"
 }
