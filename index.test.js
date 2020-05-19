@@ -1,103 +1,23 @@
 const clean = require('./index')
 
-describe('Phone Number', () => {
-  describe('Cleanup user-entered phone numbers', () => {
-    test('cleans the number', () => {
-      expect(clean('(223) 456-7890')).toEqual('2234567890');
-    });
-
-    test('cleans numbers with dots', () => {
-      expect(clean('223.456.7890')).toEqual('2234567890');
-    });
-
-    test('cleans numbers with multiple spaces', () => {
-      expect(clean('223 456   7890   ')).toEqual('2234567890');
-    });
-
-    test('invalid when 9 digits', () => {
-      expect(() => clean('123456789')).toThrow(
-        new Error('Incorrect number of digits')
-      );
-    });
-
-    test('invalid when 11 digits does not start with a 1', () => {
-      expect(() => clean('22234567890')).toThrow(
-        new Error('11 digits must start with 1')
-      );
-    });
-
-    test('valid when 11 digits and starting with 1', () => {
-      expect(clean('12234567890')).toEqual('2234567890');
-    });
-
-    test('valid when 11 digits and starting with 1 even with punctuation', () => {
-      expect(clean('+1 (223) 456-7890')).toEqual('2234567890');
-    });
-
-    test('invalid when more than 11 digits', () => {
-      expect(() => clean('321234567890')).toThrow(
-        new Error('More than 11 digits')
-      );
-    });
-
-    test('invalid with letters', () => {
-      expect(() => clean('123-abc-7890')).toThrow(
-        new Error('Letters not permitted')
-      );
-    });
-
-    test('invalid with punctuations', () => {
-      expect(() => clean('123-@:!-7890')).toThrow(
-        new Error('Punctuations not permitted')
-      );
-    });
-
-    test('invalid if area code starts with 0', () => {
-      expect(() => clean('(023) 456-7890')).toThrow(
-        new Error('Area code cannot start with zero')
-      );
-    });
-
-    test('invalid if area code starts with 1', () => {
-      expect(() => clean('(123) 456-7890')).toThrow(
-        new Error('Area code cannot start with one')
-      );
-    });
-
-    test('invalid if exchange code starts with 0', () => {
-      expect(() => clean('(223) 056-7890')).toThrow(
-        new Error('Exchange code cannot start with zero')
-      );
-    });
-
-    test('invalid if exchange code starts with 1', () => {
-      expect(() => clean('(223) 156-7890')).toThrow(
-        new Error('Exchange code cannot start with one')
-      );
-    });
-
-    test('invalid if area code starts with 0 on valid 11-digit number', () => {
-      expect(() => clean('1 (023) 456-7890')).toThrow(
-        new Error('Area code cannot start with zero')
-      );
-    });
-
-    test('invalid if area code starts with 1 on valid 11-digit number', () => {
-      expect(() => clean('1 (123) 456-7890')).toThrow(
-        new Error('Area code cannot start with one')
-      );
-    });
-
-    test('invalid if exchange code starts with 0 on valid 11-digit number', () => {
-      expect(() => clean('1 (223) 056-7890')).toThrow(
-        new Error('Exchange code cannot start with zero')
-      );
-    });
-
-    test('invalid if exchange code starts with 1 on valid 11-digit number', () => {
-      expect(() => clean('1 (223) 156-7890')).toThrow(
-        new Error('Exchange code cannot start with one')
-      );
-    });
-  });
+describe('toRoman()', () => {
+  test('converts 1', () => expect(clean(1)).toEqual('I'));
+  test('converts 2', () => expect(clean(2)).toEqual('II'));
+  test('converts 3', () => expect(clean(3)).toEqual('III'));
+  test('converts 4', () => expect(clean(4)).toEqual('IV'));
+  test('converts 5', () => expect(clean(5)).toEqual('V'));
+  test('converts 6', () => expect(clean(6)).toEqual('VI'));
+  test('converts 9', () => expect(clean(9)).toEqual('IX'));
+  test('converts 27', () => expect(clean(27)).toEqual('XXVII'));
+  test('converts 48', () => expect(clean(48)).toEqual('XLVIII'));
+  test('converts 59', () => expect(clean(59)).toEqual('LIX'));
+  test('converts 93', () => expect(clean(93)).toEqual('XCIII'));
+  test('converts 141', () => expect(clean(141)).toEqual('CXLI'));
+  test('converts 163', () => expect(clean(163)).toEqual('CLXIII'));
+  test('converts 402', () => expect(clean(402)).toEqual('CDII'));
+  test('converts 575', () => expect(clean(575)).toEqual('DLXXV'));
+  test('converts 911', () => expect(clean(911)).toEqual('CMXI'));
+  test('converts 1024', () => expect(clean(1024)).toEqual('MXXIV'));
+  test('converts 3000', () => expect(clean(3000)).toEqual('MMM'));
 });
+
