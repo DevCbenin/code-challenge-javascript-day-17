@@ -1,36 +1,51 @@
-# Phone Number
+# Roman Numerals
 
-Clean up user-entered phone numbers so that they can be sent SMS messages.
+Write a function to convert from normal numbers to Roman Numerals.
 
-The **North American Numbering Plan (NANP)** is a telephone numbering system used by many countries in North America like the United States, Canada or Bermuda. All NANP-countries share the same international country code: `1`.
+The Romans were a clever bunch. They conquered most of Europe and ruled
+it for hundreds of years. They invented concrete and straight roads and
+even bikinis. One thing they never discovered though was the number
+zero. This made writing and dating extensive histories of their exploits
+slightly more challenging, but the system of numbers they came up with
+is still in use today. For example the BBC uses Roman numerals to date
+their programmes.
 
-NANP numbers are ten-digit numbers consisting of a three-digit Numbering Plan Area code, commonly known as *area code*, followed by a seven-digit local number. The first three digits of the local number represent the *exchange code*, followed by the unique four-digit number which is the *subscriber number*.
-
-The format is usually represented as
+The Romans wrote numbers using letters - I, V, X, L, C, D, M. (notice
+these letters have lots of straight lines and are hence easy to hack
+into stone tablets).
 
 ```text
-(NXX)-NXX-XXXX
+ 1  => I
+10  => X
+ 7  => VII
 ```
 
-where `N` is any digit from 2 through 9 and `X` is any digit from 0 through 9.
+There is no need to be able to convert numbers larger than about 3000.
+(The Romans themselves didn't tend to go any higher)
 
-Your task is to clean up differently formatted telephone numbers by removing punctuation and the country code (1) if present.
+Wikipedia says: Modern Roman numerals ... are written by expressing each
+digit separately starting with the left most digit and skipping any
+digit with a value of zero.
 
-For example, the inputs
-- `+1 (613)-995-0253`
-- `613-995-0253`
-- `1 613 995 0253`
-- `613.995.0253`
+To see this in practice, consider the example of 1990.
 
-should all produce the output
+In Roman numerals 1990 is MCMXC:
 
-`6139950253`
+1000=M
+900=CM
+90=XC
 
-**Note:** As this exercise only deals with telephone numbers used in NANP-countries, only 1 is considered a valid country code.
+2008 is written as MMVIII:
 
+2000=MM
+8=VIII
 
+See also: http://www.novaroma.org/via_romana/numbers.html
 
 ## Running the tests
 
-To run the tests, run `npm test`
+```bash
+$ npm test
+```
+
 
